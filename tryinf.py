@@ -64,11 +64,10 @@ def fileUploadHandler():
     chunk_name = get_chunk_name(resumableFilename, resumableChunkNumber)
     #Chunks are uploaded 
     uploadedFile.save(os.path.join(upload_chunk,chunk_name))
-<<<<<<< HEAD
+
     #print("here",visited)
-=======
-    print("here",visited)
->>>>>>> 9ccf2c399475d92a1596a6d1cd3edc22e226fbee
+
+
     if ct==resumableTotalChunks and visited==False:
        
         chunk_paths = [os.path.join(upload_chunk, get_chunk_name(resumableFilename, x)) for x in range(1, resumableTotalChunks+1)]
@@ -86,12 +85,12 @@ def fileUploadHandler():
                     if visited_dict[stored_chunk_file_name]==False:
                         stored_chunk_file = open(stored_chunk_file_name, 'rb')
                         target_file.write(stored_chunk_file.read())
-<<<<<<< HEAD
 
-=======
+
+
                     #visited_dict[stored_chunk_file_name]=False
                     #print(visitetd_dict)
->>>>>>> 9ccf2c399475d92a1596a6d1cd3edc22e226fbee
+
                         stored_chunk_file.close()
                         
                     if visited_dict[stored_chunk_file_name]==False:
@@ -99,17 +98,17 @@ def fileUploadHandler():
                         #print(visited_dict[stored_chunk_file_name])
                         #stored_chunk_file.close()
                         visited_dict[stored_chunk_file_name]=True
-<<<<<<< HEAD
+
                     #    try:
                         os.unlink(stored_chunk_file_name)
             #            except PermissionError: 
              #               print("Permission denied")
-=======
+
                         try:
                              os.unlink(stored_chunk_file_name)
                         except PermissionError: 
                             print("Permission denied")
->>>>>>> 9ccf2c399475d92a1596a6d1cd3edc22e226fbee
+
                         
                 
         
@@ -127,14 +126,14 @@ def get_chunk_name(uploaded_filename, chunk_number):
 
 
 if __name__ == "__main__":
-<<<<<<< HEAD
+
     if not os.path.exists(uploads_dir):
         os.makedirs(uploads_dir)
     if not os.path.exists(upload_chunk):
         os.makedirs(upload_chunk)
     
     app.run(debug=True,host='0.0.0.0')
-=======
+
     
     app.run(debug=True)
->>>>>>> 9ccf2c399475d92a1596a6d1cd3edc22e226fbee
+
